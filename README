@@ -1,0 +1,39 @@
+=== goofyproxy ===
+goofyproxy acts as an HTTP proxy that filters received data
+through an external application.
+
+To use it, run it and go in network preferences of your browser to configure
+localhost:PORT as proxy for HTTP connections.
+
+
+=== Build ===
+- Get the Qt Library version 4.5.0 or higher
+- Run:
+  qmake && make
+
+
+=== Usage ===
+goofyproxy PORT CONTENTTYPEPREFIX COMMAND [COMMANDARGS]
+Open an HTTP proxy on port PORT.
+Each response with a Content-Type that starts with CONTENTTYPEPREFIX gets
+its payload sent through COMMAND's stdin. Stdout is sent back to the client.
+
+Example: goofyproxy 8080 text/html sed '{s/<p\([> ]\)/<h1\1/; s/<\/p>/<\/h1>/}'
+         would change every occurence of <p></p> for <h1></h1> in html objects.
+
+
+=== Supported platforms ===
+Linux, Mac OS X
+
+A serious issue is often seen on Windows machines, at least on my setup,
+where the client connection would be closed automatically when putting
+the software under medium load.
+
+
+=== Limitations ===
+- HTTPS is not supported
+
+
+=== Author ===
+Jocelyn Turcotte
+turcotte.j at gmail
