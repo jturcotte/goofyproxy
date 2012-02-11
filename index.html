@@ -46,32 +46,28 @@
       <span class="small">by <a href="https://github.com/jturcotte">jturcotte</a></span></h1>
 
     <div class="description">
-      A simple HTTP proxy piping data through an external process
+      goofyproxy acts as an HTTP proxy that filters received data through an external application.
     </div>
 
-    
-      <p>To use it:
-run it by specifying which external program to use as filter
-go in network preferences of your browser to configure localhost:PORT as proxy for HTTP connections
-load your favorite web page
-</p>
-    
-
-    
-
-    
-
-    
-
-    
-      <h2>Authors</h2>
-      <p>Jocelyn Turcotte (turcotte.j@gmail.com)<br/>      </p>
-    
-
-    
-      <h2>Contact</h2>
-      <p> (turcotte.j@gmail.com)<br/>      </p>
-    
+    <p>
+    To use it:<br><ul><li>run it by specifying which external program to use as filter</li><li>go in network preferences of your browser to configure localhost:PORT as proxy for HTTP connections</li><li>load your favorite web page</li></ul>
+    Samples:
+    </p>
+    <h2>ImageMagick's sketch simulation<br></h2>
+    <a href="goofyproxy_imagemagick_sketch.png" imageanchor="1">
+    <code>goofyproxy 8080 image/ convert - -colorspace Gray -sketch 0x20+120 -</code><br><br>
+    <img border="0" height="259" src="goofyproxy_imagemagick_sketch.png" width="420">
+    </a><br>
+    <h2>ImageMagick's oil paint simulation<br></h2>
+    <a href="goofyproxy_imagemagick_paint.png" imageanchor="1">
+    <code>goofyproxy 8080 image/ convert - -paint 3 -</code><br><br>
+    <img border="0" height="262" src="goofyproxy_imagemagick_paint.png" width="420"><br>
+    </a><br>
+    <h2>Perl to replace text in HTML pages</h2>
+    <a href="goofyproxy_perl.png" imageanchor="1">
+    <code>goofyproxy 8080 text/html perl -nle ' $_=~ s/(?!&lt;.*?)([^\w])cat(?![^&lt;&gt;]*?&gt;)/\1Batman/ig; print $_'</code><br><br>
+    <img border="0" height="262" src="goofyproxy_perl.png" width="420">
+    </a><br>
 
     <h2>Download</h2>
     <p>
